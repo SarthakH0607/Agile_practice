@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter Your Name</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome</h1>
+    <p class="subtitle">Please enter your name to continue</p>
+    <div class="input-group">
+      <input type="text" id="nameInput" placeholder="Your name" autocomplete="off">
+      <label for="nameInput">Name</label>
+    </div>
+    <button id="submitBtn" onclick="greet()">Submit</button>
+    <p id="greeting" class="greeting"></p>
+  </div>
+
+  <script>
+    function greet() {
+      const name = document.getElementById('nameInput').value.trim();
+      const greeting = document.getElementById('greeting');
+      if (name) {
+        greeting.textContent = `Hello, ${name}! 👋`;
+        greeting.classList.add('visible');
+      }
+    }
+
+    document.getElementById('nameInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') greet();
+    });
+  </script>
+</body>
+</html>
